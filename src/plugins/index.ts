@@ -1,3 +1,9 @@
-import axios from './api'
+import http from './api/http'
 
-export { axios }
+// declare module 'vue' {
+//   interface ComponentCustomProperties {
+//     $axios: typeof axios
+//   }
+// }
+
+export { http }
