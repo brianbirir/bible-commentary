@@ -1,30 +1,44 @@
-<template lang="">
+<template>
   <div>
     <div class="about">
       <h1>{{ reference }}</h1>
-      <div class="book-section pa-5">
-        <div v-for="(verse, index) in verses" class="content">
+      <div class="book-section pa-1">
+        <div v-for="(verse, index) in verses" :key="index" class="content">
           <v-card class="my-2">
             <v-card-title>
               <div class="references">
                 <v-chip> Verse: {{ verse.verse }} </v-chip>
               </div>
             </v-card-title>
-            <v-card-text>{{ verse.text }}</v-card-text>
-            <v-card-actions>
+            <v-card-text
+              ><v-icon
+                @click="commentaryDialog = true"
+                :icon="mdiHelp"
+                color="red-darken-2"
+                size="large"
+              ></v-icon>
               <v-icon
                 @click="questionDialog = true"
                 :icon="mdiNote"
                 color="green-darken-2"
                 size="large"
-              ></v-icon>
+              ></v-icon
+              >{{ verse.text }}</v-card-text
+            >
+            <!-- <v-card-actions>
               <v-icon
                 @click="commentaryDialog = true"
                 :icon="mdiHelp"
                 color="red-darken-2"
                 size="large"
               ></v-icon>
-            </v-card-actions>
+              <v-icon
+                @click="questionDialog = true"
+                :icon="mdiNote"
+                color="green-darken-2"
+                size="large"
+              ></v-icon>
+            </v-card-actions> -->
           </v-card>
         </div>
       </div>
@@ -79,7 +93,7 @@ export default {
 </script>
 <style scoped>
 .book-section {
-  height: 300px;
+  height: 600px;
   overflow-x: hidden;
   overflow-y: auto;
 }
